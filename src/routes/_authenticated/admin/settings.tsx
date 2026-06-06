@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { PageHeader } from '../../../components/ui/PageHeader';
-import { Card, CardHeader, CardTitle } from '../../../components/ui/Card';
+import { PageHeader } from '../../../components/wpos/PageHeader';
+import { Card, CardHeader, CardTitle } from '../../../components/wpos/Card';
 import { Save } from 'lucide-react';
 export const Route = createFileRoute('/_authenticated/admin/settings')({ component: SettingsPage });
 function SettingsPage() {

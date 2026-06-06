@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { PageHeader } from '../../../components/ui/PageHeader';
-import { Card } from '../../../components/ui/Card';
+import { PageHeader } from '../../../components/wpos/PageHeader';
+import { Card } from '../../../components/wpos/Card';
 import { useState } from 'react';
 import { Building2, GitBranch, Building, Users, UserCircle, ChevronDown, ChevronRight } from 'lucide-react';
 export const Route = createFileRoute('/_authenticated/organization/hierarchy')({ component: HierarchyPage });

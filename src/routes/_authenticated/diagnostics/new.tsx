@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { PageHeader } from '../../../components/ui/PageHeader';
-import { Card } from '../../../components/ui/Card';
+import { PageHeader } from '../../../components/wpos/PageHeader';
+import { Card } from '../../../components/wpos/Card';
 import { Stethoscope, X } from 'lucide-react';
 export const Route = createFileRoute('/_authenticated/diagnostics/new')({ component: NewDiagnosticPage });
 function NewDiagnosticPage() {

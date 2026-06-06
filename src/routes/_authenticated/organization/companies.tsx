@@ -1,7 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { PageHeader } from '../../../components/ui/PageHeader';
-import { DataTable } from '../../../components/ui/DataTable';
-import { StatusBadge } from '../../../components/ui/StatusBadge';
+import { PageHeader } from '../../../components/wpos/PageHeader';
+import { DataTable } from '../../../components/wpos/DataTable';
+import { StatusBadge } from '../../../components/wpos/StatusBadge';
 import { Plus, Building } from 'lucide-react';
 export const Route = createFileRoute('/_authenticated/organization/companies')({ component: CompaniesPage });
 function CompaniesPage() {

@@ -1,8 +1,8 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { PageHeader } from '../../../components/ui/PageHeader';
-import { Card, CardHeader, CardTitle } from '../../../components/ui/Card';
-import { DataTable } from '../../../components/ui/DataTable';
-import { StatusBadge } from '../../../components/ui/StatusBadge';
+import { PageHeader } from '../../../components/wpos/PageHeader';
+import { Card, CardHeader, CardTitle } from '../../../components/wpos/Card';
+import { DataTable } from '../../../components/wpos/DataTable';
+import { StatusBadge } from '../../../components/wpos/StatusBadge';
 import { Plus, FileSearch, Lightbulb, CheckCircle, XCircle, ArrowRight, AlertTriangle } from 'lucide-react';
 import { useState } from 'react';
 export const Route = createFileRoute('/_authenticated/diagnostics/')({ component: DiagnosticsPage });
