@@ -29,6 +29,7 @@ interface DataTableProps<T extends { id: string } = any> {
   searchable?: boolean;
   selectable?: boolean;
   pageSize?: number;
+  currentLang?: string;
   onRowClick?: (row: T) => void;
   onSort?: (key: string, direction: 'asc' | 'desc') => void;
   onSearch?: (query: string) => void;
