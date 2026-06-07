@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Search, ChevronLeft, ChevronRight, ChevronUp, ChevronDown } from 'lucide-react';
 
-interface Column<T> { key: string; label: string; sortable?: boolean; render?: (item: T) => React.ReactNode; }
+interface Column<T> { key: string; label: string; labelAr?: string; sortable?: boolean; render?: (item: T) => React.ReactNode; }
 
-export function DataTable<T extends Record<string, any>>({ columns, data, isLoading, onRowClick, pageSize = 20 }: { columns: Column<T>[]; data: T[]; isLoading?: boolean; onRowClick?: (item: T) => void; pageSize?: number }) {
+export function DataTable<T extends Record<string, any>>({ columns, data, isLoading, onRowClick, pageSize = 20, currentLang = 'en' }: { columns: Column<T>[]; data: T[]; isLoading?: boolean; onRowClick?: (item: T) => void; pageSize?: number; currentLang?: 'ar' | 'en' }) {
   const [search, setSearch] = useState('');
   const [sortKey, setSortKey] = useState<string | null>(null);
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
@@ -30,7 +30,7 @@ export function DataTable<T extends Record<string, any>>({ columns, data, isLoad
             <tr className="border-b border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/50">
               {columns.map(col => (
                 <th key={col.key} className={`px-4 py-3 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider text-left ${col.sortable ? 'cursor-pointer hover:text-gray-700' : ''}`} onClick={() => { if (col.sortable) { sortKey === col.key ? setSortOrder(o => o === 'asc' ? 'desc' : 'asc') : setSortKey(col.key); }}}>
-                  <div className="flex items-center gap-1">{col.label}{col.sortable && sortKey === col.key && (sortOrder === 'asc' ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />)}</div>
+                  <div className="flex items-center gap-1">{currentLang === 'ar' && col.labelAr ? col.labelAr : col.label}{col.sortable && sortKey === col.key && (sortOrder === 'asc' ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />)}</div>
                 </th>
               ))}
             </tr>
