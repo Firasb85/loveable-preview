@@ -1,8 +1,8 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { PageHeader } from '../../../components/wpos/PageHeader';
-import { Card } from '../../../components/wpos/Card';
-import { DataTable } from '../../../components/wpos/DataTable';
-import { StatusBadge } from '../../../components/wpos/StatusBadge';
+import { PageHeader } from '~/components/wpos/PageHeader';
+import { Card } from '~/components/wpos/Card';
+import { DataTable } from '~/components/wpos/DataTable';
+import { StatusBadge } from '~/components/wpos/StatusBadge';
 import { Plus, Shield, Clock } from 'lucide-react';
 export const Route = createFileRoute('/_authenticated/admin/users')({ component: UserManagementPage });
 function UserManagementPage() {

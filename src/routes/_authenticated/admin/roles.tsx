@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { PageHeader } from '../../../components/wpos/PageHeader';
-import { Card, CardHeader, CardTitle } from '../../../components/wpos/Card';
+import { PageHeader } from '~/components/wpos/PageHeader';
+import { Card, CardHeader, CardTitle } from '~/components/wpos/Card';
 import { Shield, Plus, Check, Lock } from 'lucide-react';
 import { useState } from 'react';
 export const Route = createFileRoute('/_authenticated/admin/roles')({ component: RoleManagementPage });
