@@ -12,5 +12,17 @@ export default defineConfig({
         "~": path.resolve(__dirname, "./src"),
       },
     },
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'vendor-react': ['react', 'react-dom'],
+            'vendor-router': ['@tanstack/react-router', '@tanstack/react-query'],
+            'vendor-supabase': ['@supabase/supabase-js'],
+            'vendor-ui': ['lucide-react', 'clsx', 'tailwind-merge']
+          },
+        },
+      },
+    },
   },
 });
