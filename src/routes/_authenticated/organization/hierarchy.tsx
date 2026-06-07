@@ -59,13 +59,9 @@ function Node({ node, depth = 0 }: { node: OrgNode; depth?: number }) {
         {icons[node.type]}
         <div className="flex-1">
           <p className="text-sm font-medium text-gray-900">{node.name}</p>
-          {node.subtitle && (
-            <p className="text-xs text-gray-500">{node.subtitle}</p>
-          )}
+          {node.subtitle && <p className="text-xs text-gray-500">{node.subtitle}</p>}
         </div>
-        {node.badge && (
-          <span className="text-xs text-gray-400">{node.badge}</span>
-        )}
+        {node.badge && <span className="text-xs text-gray-400">{node.badge}</span>}
       </div>
       {hasChildren && expanded && (
         <div className="space-y-1">
