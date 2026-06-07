@@ -4,7 +4,7 @@ import { Card, CardHeader, CardTitle } from '~/components/wpos/Card';
 import { StatsCard } from '~/components/wpos/StatsCard';
 import { TrendingUp, TrendingDown, Brain } from 'lucide-react';
 
-export const Route = createFileRoute('/_authenticated/analyrics/competency-trends')({ component: CompetencyTrendsPage });
+export const Route = createFileRoute('/_authenticated/analytics/competency-trends')({ component: CompetencyTrendsPage });
 
 function CompetencyTrendsPage() {
   const l = 'ar';

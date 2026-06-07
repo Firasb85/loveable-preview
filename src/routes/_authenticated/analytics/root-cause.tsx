@@ -4,7 +4,7 @@ import { Card, CardHeader, CardTitle } from '~/components/wpos/Card';
 import { StatsCard } from '~/components/wpos/StatsCard';
 import { Search, TrendingUp, AlertTriangle, BarChart3, ArrowUp, ArrowDown, Minus } from 'lucide-react';
 
-export const Route = createFileRoute('/_authenticated/analyrics/root-cause')({ component: RootCauseAnalysisPage });
+export const Route = createFileRoute('/_authenticated/analytics/root-cause')({ component: RootCauseAnalysisPage });
 
 function RootCauseAnalysisPage() {
   const l = 'ar';
