@@ -59,6 +59,8 @@ import {
   Search,
   BookOpen,
   TrendingUp,
+  ClipboardList,
+  Layout,
 } from "lucide-react";
 import { navigation } from "../../lib/constants/navigation";
 import { APP_NAME } from "../../lib/constants";
@@ -116,6 +118,8 @@ const iconMap: Record<string, LucideIcon> = {
   Search,
   BookOpen,
   TrendingUp,
+  ClipboardList,
+  Layout,
 };
 
 interface SidebarProps {
@@ -128,14 +132,44 @@ interface SidebarProps {
 export function Sidebar({ isOpen, onToggle, isDark, onThemeToggle }: SidebarProps) {
   const location = useLocation();
   const { lang, t } = useLanguage();
-  const [expanded, setExpanded] = useState<string[]>(["/dashboard"]);
+  // Auto-expand parent sections whose children match the current path
+  const getInitialExpanded = (): string[] => {
+    const result = ["/dashboard"];
+    for (const item of navigation) {
+      if (item.children) {
+        const childActive = item.children.some(
+          (child) =>
+            location.pathname === child.href || location.pathname.startsWith(child.href + "/"),
+        );
+        if (childActive && !result.includes(item.href)) {
+          result.push(item.href);
+        }
+      }
+    }
+    return result;
+  };
+
+  const [expanded, setExpanded] = useState<string[]>(getInitialExpanded);
   const toggle = (href: string) =>
     setExpanded((p) => (p.includes(href) ? p.filter((i) => i !== href) : [...p, href]));
+
+  /** Check if this item or any of its children match the current path */
+  const isItemActive = (item: NavItem): boolean => {
+    if (location.pathname === item.href || location.pathname.startsWith(item.href + "/")) {
+      return true;
+    }
+    // Also check children — some parents (e.g. /advanced) have children
+    // whose hrefs don't share the parent prefix (e.g. /rules-engine)
+    if (item.children) {
+      return item.children.some((child) => isItemActive(child));
+    }
+    return false;
+  };
 
   const renderItem = (item: NavItem, depth = 0) => {
     const Icon = iconMap[item.icon] || LayoutDashboard;
     const hasChildren = (item.children?.length ?? 0) > 0;
-    const active = location.pathname.startsWith(item.href);
+    const active = isItemActive(item);
     const isExpanded = expanded.includes(item.href);
     const label = lang === "ar" ? item.labelAr : item.label;
 
