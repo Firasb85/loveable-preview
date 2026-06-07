@@ -4,7 +4,7 @@ import { Card, CardHeader, CardTitle } from '~/components/wpos/Card';
 import { StatsCard } from '~/components/wpos/StatsCard';
 import { Shield, CheckCircle, XCircle, Clock, TrendingUp } from 'lucide-react';
 
-export const Route = createFileRoute('/_authenticated/analytics/evidence-quality')({ component: EvidenceQualityPage });
+export const Route = createFileRoute('/_authenticated/analyrics/evidence-quality')({ component: EvidenceQualityPage });
 
 function EvidenceQualityPage() {
   const l = 'ar';
